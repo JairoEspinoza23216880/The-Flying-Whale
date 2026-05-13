@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://tjaes52ieoqy"]
 
+[ext_resource type="Texture2D" uid="uid://csnln8yeqxxaa" path="res://assets/emptyprogrebar.png" id="1_5tddo"]
+[ext_resource type="Texture2D" uid="uid://byd83k0bhhsr7" path="res://assets/powerprogrebar.png" id="2_cywyo"]
+[ext_resource type="Texture2D" uid="uid://d0n00tv2vptu5" path="res://assets/hydroprogrebar.png" id="3_cywyo"]
+
 [node name="Controls" type="CanvasLayer" unique_id=1122084355]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1448732141]
@@ -21,11 +25,29 @@ offset_right = 808.0
 offset_bottom = 678.0
 
 [node name="EngineClock" type="TextureProgressBar" parent="." unique_id=834490707]
-offset_left = 529.0
-offset_top = 566.0
-offset_right = 660.0
-offset_bottom = 704.0
+offset_left = 607.0
+offset_top = 528.0
+offset_right = 907.0
+offset_bottom = 678.0
+scale = Vector2(0.5, 0.5)
 value = 50.0
 fill_mode = 4
-radial_initial_angle = 180.0
-radial_fill_degrees = 0.0
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(0, 75)
+texture_under = ExtResource("1_5tddo")
+texture_progress = ExtResource("2_cywyo")
+
+[node name="HydrogenClock" type="TextureProgressBar" parent="." unique_id=2051705161]
+offset_left = 607.0
+offset_top = 603.0
+offset_right = 907.0
+offset_bottom = 753.0
+scale = Vector2(0.5, 0.5)
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(0, 75)
+texture_under = ExtResource("1_5tddo")
+texture_progress = ExtResource("3_cywyo")
