@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://86tik6je2pdg"]
+
+[ext_resource type="Texture2D" uid="uid://cnfpf6in1s271" path="res://assets/coolzone.png" id="1_q5obv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5obv"]
+size = Vector2(800, 800)
+
+[node name="ColdZone" type="Node2D" unique_id=810956655]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1699226400]
+texture = ExtResource("1_q5obv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1404039483]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=105697605]
+shape = SubResource("RectangleShape2D_q5obv")

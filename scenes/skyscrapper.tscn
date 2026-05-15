@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://diaso6imlmaur"]
+
+[ext_resource type="Texture2D" uid="uid://copsf5t2x7kxj" path="res://assets/skyscrapper.png" id="1_1c7bf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c7bf"]
+size = Vector2(168, 1148)
+
+[node name="SkyScrapper" type="Node2D" unique_id=1453235834]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=385969327]
+texture = ExtResource("1_1c7bf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1260180346]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1111002125]
+shape = SubResource("RectangleShape2D_1c7bf")
