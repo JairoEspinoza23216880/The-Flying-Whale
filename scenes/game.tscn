@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cjvqj3qs0b5x"]
+
+[ext_resource type="Texture2D" uid="uid://cspd5ye7yd6as" path="res://assets/gamebackground.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://diaso6imlmaur" path="res://scenes/skyscrapper.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=1501020834]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1261339194]
+
+[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=1152142761]
+texture = ExtResource("1_uwrxv")
+
+[node name="SkyScrapper" parent="." unique_id=1453235834 instance=ExtResource("2_yqjtg")]
+position = Vector2(-598, -113)

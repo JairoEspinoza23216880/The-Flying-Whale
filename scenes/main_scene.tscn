@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://5iwapqlgncge"]
 
+[ext_resource type="PackedScene" uid="uid://tjaes52ieoqy" path="res://scenes/controls.tscn" id="1_w2twt"]
+[ext_resource type="PackedScene" uid="uid://cjvqj3qs0b5x" path="res://scenes/game.tscn" id="2_pw63i"]
+
 [node name="main_scene" type="Node2D" unique_id=2062400408]
+
+[node name="Controls" parent="." unique_id=1122084355 instance=ExtResource("1_w2twt")]
+
+[node name="Game" parent="." unique_id=1501020834 instance=ExtResource("2_pw63i")]

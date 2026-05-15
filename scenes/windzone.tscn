@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dwna7yd1u2f85"]
+
+[ext_resource type="Texture2D" uid="uid://c1tsbv2ckg7ej" path="res://assets/wind.png" id="1_pq3o4"]
+
+[sub_resource type="Curve" id="Curve_pq3o4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49999997, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gstxk"]
+curve = SubResource("Curve_pq3o4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pq3o4"]
+emission_shape = 3
+emission_box_extents = Vector3(400, 400, 1)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_gstxk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq3o4"]
+size = Vector2(800, 800)
+
+[node name="WindZone" type="Node2D" unique_id=171066825]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1748981689]
+texture = ExtResource("1_pq3o4")
+process_material = SubResource("ParticleProcessMaterial_pq3o4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2040649424]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2007769429]
+shape = SubResource("RectangleShape2D_pq3o4")
