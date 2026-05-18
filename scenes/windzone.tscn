@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dwna7yd1u2f85"]
 
+[ext_resource type="Script" uid="uid://ct7lavo72a52v" path="res://scripts/windzone.gd" id="1_gstxk"]
 [ext_resource type="Texture2D" uid="uid://c1tsbv2ckg7ej" path="res://assets/wind.png" id="1_pq3o4"]
 
 [sub_resource type="Curve" id="Curve_pq3o4"]
@@ -21,7 +22,9 @@ alpha_curve = SubResource("CurveTexture_gstxk")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq3o4"]
 size = Vector2(800, 800)
 
-[node name="WindZone" type="Node2D" unique_id=171066825]
+[node name="WindZone" type="Node2D" unique_id=171066825 node_paths=PackedStringArray("area")]
+script = ExtResource("1_gstxk")
+area = NodePath("Area2D")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1748981689]
 texture = ExtResource("1_pq3o4")

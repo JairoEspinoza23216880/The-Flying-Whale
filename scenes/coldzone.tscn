@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://86tik6je2pdg"]
 
 [ext_resource type="Texture2D" uid="uid://cnfpf6in1s271" path="res://assets/coolzone.png" id="1_q5obv"]
+[ext_resource type="Script" uid="uid://ciu7nj4syrfis" path="res://scripts/coldzone.gd" id="1_tiv2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5obv"]
 size = Vector2(800, 800)
 
-[node name="ColdZone" type="Node2D" unique_id=810956655]
+[node name="ColdZone" type="Node2D" unique_id=810956655 node_paths=PackedStringArray("area")]
+script = ExtResource("1_tiv2b")
+area = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1699226400]
 texture = ExtResource("1_q5obv")
