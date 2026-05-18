@@ -2,13 +2,120 @@
 
 [ext_resource type="Texture2D" uid="uid://cspd5ye7yd6as" path="res://assets/gamebackground.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://diaso6imlmaur" path="res://scenes/skyscrapper.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bp47shj106cyc" path="res://scenes/background.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dwrojmhrw8b7f" path="res://scenes/Dirigible.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dwna7yd1u2f85" path="res://scenes/windzone.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://byfsmew8ykeep" path="res://scenes/hotzone.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://86tik6je2pdg" path="res://scenes/coldzone.tscn" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://bpfv45rejn4qe" path="res://icon.svg" id="8_gee14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(8572, 240)
 
 [node name="Game" type="Node2D" unique_id=1501020834]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1261339194]
+[node name="Airship" parent="." unique_id=426941319 instance=ExtResource("3_lnu2h")]
 
-[node name="Background" type="Sprite2D" parent="Camera2D" unique_id=1152142761]
+[node name="Camera2D" type="Camera2D" parent="Airship" unique_id=1261339194]
+scale = Vector2(0.8333333, 0.8333333)
+script = ExtResource("3_lbhrr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Airship/Camera2D" unique_id=1953547987]
+z_index = -1
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_uwrxv")
 
-[node name="SkyScrapper" parent="." unique_id=1453235834 instance=ExtResource("2_yqjtg")]
+[node name="Limites" type="Node2D" parent="." unique_id=1862431823]
+
+[node name="Suelo" type="StaticBody2D" parent="Limites" unique_id=1778712096]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Suelo" unique_id=290703161]
+position = Vector2(3646, 280)
+shape = SubResource("RectangleShape2D_lbhrr")
+debug_color = Color(0.99999994, 0.0136424685, 0.040768035, 0.41960785)
+
+[node name="Cielo" type="StaticBody2D" parent="Limites" unique_id=1636444326]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Cielo" unique_id=61058817]
+position = Vector2(3646, -520)
+shape = SubResource("RectangleShape2D_lbhrr")
+debug_color = Color(0.99999994, 0.0136424685, 0.040768035, 0.41960785)
+
+[node name="SkyScrapperStart" parent="." unique_id=1453235834 instance=ExtResource("2_yqjtg")]
 position = Vector2(-598, -113)
+
+[node name="SkyScrapperEnd" parent="." unique_id=1650270241 instance=ExtResource("2_yqjtg")]
+position = Vector2(7890, -113)
+
+[node name="WindZone" parent="." unique_id=171066825 instance=ExtResource("5_iywne")]
+position = Vector2(1502, -43)
+rotation = -1.5707964
+
+[node name="SkyScrapper" parent="." unique_id=1521338847 instance=ExtResource("2_yqjtg")]
+position = Vector2(598, 287)
+
+[node name="SkyScrapper1" parent="." unique_id=38566757 instance=ExtResource("2_yqjtg")]
+position = Vector2(1281, 379)
+
+[node name="SkyScrapper2" parent="." unique_id=494759659 instance=ExtResource("2_yqjtg")]
+position = Vector2(1523, 280)
+
+[node name="SkyScrapper3" parent="." unique_id=422137940 instance=ExtResource("2_yqjtg")]
+position = Vector2(1771, 175)
+
+[node name="HotZone" parent="." unique_id=810956655 instance=ExtResource("6_p57ef")]
+position = Vector2(2751, -59)
+scale = Vector2(2, 1)
+
+[node name="SkyScrapper4" parent="." unique_id=1622464986 instance=ExtResource("2_yqjtg")]
+position = Vector2(2200, 349)
+
+[node name="SkyScrapper5" parent="." unique_id=1579499183 instance=ExtResource("2_yqjtg")]
+position = Vector2(2591, 228)
+
+[node name="SkyScrapper6" parent="." unique_id=81821278 instance=ExtResource("2_yqjtg")]
+position = Vector2(2923, 59)
+
+[node name="ColdZone" parent="." unique_id=747770541 instance=ExtResource("7_u5sy4")]
+position = Vector2(6136, -27)
+scale = Vector2(2, 1)
+
+[node name="WindZone3" parent="." unique_id=262551364 instance=ExtResource("5_iywne")]
+position = Vector2(4448.0005, -111.99976)
+rotation = 2.3561945
+scale = Vector2(1.5, 1.5)
+
+[node name="SkyScrapper7" parent="." unique_id=1922246955 instance=ExtResource("2_yqjtg")]
+position = Vector2(3805, 363)
+
+[node name="SkyScrapper8" parent="." unique_id=1473579528 instance=ExtResource("2_yqjtg")]
+position = Vector2(4109, 278)
+
+[node name="SkyScrapper9" parent="." unique_id=657209246 instance=ExtResource("2_yqjtg")]
+position = Vector2(4355, 228)
+
+[node name="SkyScrapper10" parent="." unique_id=1706241016 instance=ExtResource("2_yqjtg")]
+position = Vector2(4556, 308)
+
+[node name="SkyScrapper11" parent="." unique_id=1516437907 instance=ExtResource("2_yqjtg")]
+position = Vector2(4803, 379)
+
+[node name="WindZone2" parent="." unique_id=1070006140 instance=ExtResource("5_iywne")]
+position = Vector2(6531, -260)
+rotation = 1.5707964
+
+[node name="SkyScrapper12" parent="." unique_id=210817313 instance=ExtResource("2_yqjtg")]
+position = Vector2(5534, 67)
+
+[node name="SkyScrapper13" parent="." unique_id=1157547182 instance=ExtResource("2_yqjtg")]
+position = Vector2(5920, 267)
+
+[node name="SkyScrapper14" parent="." unique_id=339792644 instance=ExtResource("2_yqjtg")]
+position = Vector2(6245, 261)
+
+[node name="SkyScrapper15" parent="." unique_id=1824338393 instance=ExtResource("2_yqjtg")]
+position = Vector2(6576, 121)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1104030126]
+position = Vector2(7454, -112)
+texture = ExtResource("8_gee14")

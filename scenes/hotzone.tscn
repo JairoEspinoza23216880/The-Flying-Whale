@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://byfsmew8ykeep"]
 
+[ext_resource type="Script" uid="uid://d3w11a3t4df38" path="res://scripts/hotzone.gd" id="1_sree3"]
 [ext_resource type="Texture2D" uid="uid://df56k4r6dbn1b" path="res://assets/heatzone.png" id="1_w2oh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5obv"]
 size = Vector2(800, 800)
 
-[node name="ColdZone" type="Node2D" unique_id=810956655]
+[node name="HotZone" type="Node2D" unique_id=810956655 node_paths=PackedStringArray("area")]
+script = ExtResource("1_sree3")
+area = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1699226400]
 texture = ExtResource("1_w2oh6")
@@ -14,3 +17,4 @@ texture = ExtResource("1_w2oh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=105697605]
 shape = SubResource("RectangleShape2D_q5obv")
+debug_color = Color(0.7522394, 0.4585501, 5.7756904e-07, 0.41960785)

@@ -6,14 +6,40 @@
 [ext_resource type="Script" uid="uid://dv5k3gwe68j8v" path="res://scripts/compressor_power.gd" id="2_niyus"]
 [ext_resource type="Script" uid="uid://bq0y2bh7sinms" path="res://scripts/engine_clock.gd" id="3_a8sje"]
 [ext_resource type="Texture2D" uid="uid://d0n00tv2vptu5" path="res://assets/hydroprogrebar.png" id="3_cywyo"]
+[ext_resource type="Script" uid="uid://ck744m0ahfyoa" path="res://scripts/degree_indicator.gd" id="3_qfrta"]
 [ext_resource type="Texture2D" uid="uid://dnvfsgk8whxoc" path="res://assets/enginevectorwheel.png" id="4_jlst0"]
 [ext_resource type="Script" uid="uid://b55f2phtfw860" path="res://scripts/enginevectorindicator.gd" id="5_a8sje"]
 [ext_resource type="Texture2D" uid="uid://cy4nyn8u20wsp" path="res://assets/enginevectorindicator.png" id="5_dloai"]
 [ext_resource type="Script" uid="uid://btb0msgdochcw" path="res://scripts/enginevectorwheel.gd" id="5_k6bol"]
 [ext_resource type="Script" uid="uid://n20bvhn8cfe2" path="res://scripts/hydrogen_clock.gd" id="5_t622t"]
+[ext_resource type="Script" uid="uid://bs46ycwho20xv" path="res://scripts/force_indicator.gd" id="10_8sahj"]
+[ext_resource type="Script" uid="uid://bs4wy8alm0jg7" path="res://scripts/gas_indicator.gd" id="13_bd2fc"]
+[ext_resource type="Script" uid="uid://dwksh1jh18o2l" path="res://scripts/otros_valores.gd" id="15_rkygl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8sje"]
 radius = 42.666687
+
+[sub_resource type="SystemFont" id="SystemFont_niyus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfrta"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8sahj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bd2fc"]
+font = SubResource("SystemFont_8sahj")
+font_size = 24
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkygl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aa41a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qifi2"]
+font_color = Color(0, 1, 0, 1)
 
 [node name="Controls" type="CanvasLayer" unique_id=1122084355]
 
@@ -24,59 +50,24 @@ offset_bottom = 800.0
 mouse_filter = 2
 color = Color(0.16062862, 0.16062862, 0.16062862, 1)
 
-[node name="EnginePower" type="VSlider" parent="." unique_id=1546491180]
-offset_left = 763.625
-offset_top = 611.625
-offset_right = 811.625
-offset_bottom = 761.625
-script = ExtResource("1_vwfca")
-
-[node name="CompressorPower" type="VSlider" parent="." unique_id=2144267122]
-offset_left = 811.625
-offset_top = 611.625
-offset_right = 859.625
-offset_bottom = 761.625
-min_value = -100.0
-script = ExtResource("2_niyus")
-
-[node name="EngineClock" type="TextureProgressBar" parent="." unique_id=834490707]
-offset_left = 610.625
-offset_top = 611.625
-offset_right = 910.625
-offset_bottom = 761.625
-scale = Vector2(0.5, 0.5)
-value = 50.0
-fill_mode = 4
-radial_initial_angle = 270.0
-radial_fill_degrees = 180.0
-radial_center_offset = Vector2(0, 75)
-texture_under = ExtResource("1_5tddo")
-texture_progress = ExtResource("2_cywyo")
-script = ExtResource("3_a8sje")
-
-[node name="HydrogenClock" type="TextureProgressBar" parent="." unique_id=2051705161]
-offset_left = 610.625
-offset_top = 686.625
-offset_right = 910.625
-offset_bottom = 836.625
-scale = Vector2(0.5, 0.5)
-value = 50.0
-fill_mode = 4
-radial_initial_angle = 270.0
-radial_fill_degrees = 180.0
-radial_center_offset = Vector2(0, 75)
-texture_under = ExtResource("1_5tddo")
-texture_progress = ExtResource("3_cywyo")
-script = ExtResource("5_t622t")
-
 [node name="Enginevectorindicator" type="Sprite2D" parent="." unique_id=1390703546]
-position = Vector2(453.625, 683.625)
+position = Vector2(283.625, 685.625)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_dloai")
 script = ExtResource("5_a8sje")
 
+[node name="Degree Indicator" type="Label" parent="." unique_id=2107399999]
+offset_left = 250.0
+offset_top = 673.0
+offset_right = 313.0
+offset_bottom = 696.0
+text = "Degrees"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_qfrta")
+
 [node name="Enginevectorwheel" type="Sprite2D" parent="." unique_id=830389788 node_paths=PackedStringArray("handle")]
-position = Vector2(453.625, 683.625)
+position = Vector2(283.625, 685.625)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_jlst0")
 script = ExtResource("5_k6bol")
@@ -88,3 +79,91 @@ handle = NodePath("Area2D")
 position = Vector2(0, -118.66667)
 shape = SubResource("CircleShape2D_a8sje")
 debug_color = Color(0.87058824, 0, 0.8509804, 0.49803922)
+
+[node name="EnginePower" type="VSlider" parent="." unique_id=1546491180]
+offset_left = 391.0
+offset_top = 578.0
+offset_right = 439.0
+offset_bottom = 766.0
+script = ExtResource("1_vwfca")
+
+[node name="CompressorPower" type="VSlider" parent="." unique_id=2144267122]
+offset_left = 605.0
+offset_top = 578.0
+offset_right = 653.0
+offset_bottom = 766.0
+min_value = -100.0
+step = 20.0
+script = ExtResource("2_niyus")
+
+[node name="EngineClock" type="TextureProgressBar" parent="." unique_id=834490707]
+offset_left = 439.0
+offset_top = 597.0
+offset_right = 739.0
+offset_bottom = 747.0
+scale = Vector2(0.5, 0.5)
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(0, 75)
+texture_under = ExtResource("1_5tddo")
+texture_progress = ExtResource("2_cywyo")
+script = ExtResource("3_a8sje")
+
+[node name="ForceIndicator" type="Label" parent="EngineClock" unique_id=2130788977]
+layout_mode = 0
+offset_top = 178.0
+offset_right = 300.0
+offset_bottom = 330.0
+theme_override_fonts/font = SubResource("SystemFont_niyus")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfrta")
+text = "Fuerza:
+MaxFuerza:"
+label_settings = SubResource("LabelSettings_bd2fc")
+vertical_alignment = 1
+script = ExtResource("10_8sahj")
+
+[node name="HydrogenClock" type="TextureProgressBar" parent="." unique_id=2051705161]
+offset_left = 653.0
+offset_top = 597.0
+offset_right = 953.0
+offset_bottom = 747.0
+scale = Vector2(0.5, 0.5)
+value = 50.0
+fill_mode = 4
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(0, 75)
+texture_under = ExtResource("1_5tddo")
+texture_progress = ExtResource("3_cywyo")
+script = ExtResource("5_t622t")
+
+[node name="GasIndicator" type="Label" parent="HydrogenClock" unique_id=1572378053]
+layout_mode = 0
+offset_top = 178.0
+offset_right = 300.0
+offset_bottom = 330.0
+theme_override_fonts/font = SubResource("SystemFont_niyus")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkygl")
+text = "Gas:
+Inflado:
+Relación S/P:"
+label_settings = SubResource("LabelSettings_bd2fc")
+vertical_alignment = 1
+script = ExtResource("13_bd2fc")
+
+[node name="Otros Valores" type="Label" parent="." unique_id=46236882]
+offset_left = 826.0
+offset_top = 597.0
+offset_right = 1084.0
+offset_bottom = 781.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_aa41a")
+text = "Densidad Aire:
+Fuerza Viento:
+Ángulo Viento:"
+label_settings = SubResource("LabelSettings_qifi2")
+vertical_alignment = 1
+script = ExtResource("15_rkygl")

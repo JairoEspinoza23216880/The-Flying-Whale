@@ -1,13 +1,31 @@
 [gd_scene format=3 uid="uid://dwrojmhrw8b7f"]
 
+[ext_resource type="Texture2D" uid="uid://c1v2fuqe0h0y0" path="res://assets/airship.png" id="1_fph4q"]
 [ext_resource type="Script" uid="uid://d0b7xfgkoflow" path="res://scenes/Dirigible.gd" id="1_wv0dr"]
+[ext_resource type="Texture2D" uid="uid://cjy7howjeg7el" path="res://assets/engine.png" id="3_qm16n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_086b6"]
-
-[node name="Node2D" type="Node2D" unique_id=426941319]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1750977377]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1750977377 node_paths=PackedStringArray("engine1", "engine2")]
 script = ExtResource("1_wv0dr")
+engine1 = NodePath("Sprites/Engine1")
+engine2 = NodePath("Sprites/Engine2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=184849441]
-shape = SubResource("CircleShape2D_086b6")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1167520634]
+scale = Vector2(1.17, 1.17)
+polygon = PackedVector2Array(84, -3, 75, -11, 64, -15, 52, -18, 32, -21, 1, -21, -31, -17, -59, -11, -73, -23, -85, -23, -85, 23, -74, 23, -59, 10, -31, 17, 1, 21, 32, 21, 52, 18, 64, 15, 75, 11, 84, 3)
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1341874540]
+scale = Vector2(1.17, 1.17)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites" unique_id=254779275]
+texture = ExtResource("1_fph4q")
+
+[node name="Engine1" type="Sprite2D" parent="Sprites" unique_id=2116864755]
+position = Vector2(40, 0)
+texture = ExtResource("3_qm16n")
+
+[node name="Engine2" type="Sprite2D" parent="Sprites" unique_id=1417305836]
+position = Vector2(-30, 0)
+texture = ExtResource("3_qm16n")
+
+[node name="Airship" type="Node2D" parent="." unique_id=426941319]
+scale = Vector2(1.2, 1.2)
